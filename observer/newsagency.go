@@ -48,3 +48,16 @@ func (a *NewAgency) deleteFromList(subscriber Observer) {
 		}
 	}
 }
+
+func (a *NewAgency) Subscribers() []Observer {
+	return a.subcribers
+}
+
+func (a *NewAgency) Exists(name string) bool {
+	for _, s := range a.subcribers {
+		if s.GetName() == name {
+			return true
+		}
+	}
+	return false
+}
